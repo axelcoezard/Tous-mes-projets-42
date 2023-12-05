@@ -6,11 +6,6 @@ Sauvegarde de tous mes projets 42 finis.
 [![forthebadge](https://forthebadge.com/images/badges/made-with-c.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-c-plus-plus.svg)](https://forthebadge.com)
 
-## Piscines
-
-- Piscine de C : [axelcoezard/ft_piscine_C](https://github.com/axelcoezard/ft_piscine_C)
-- Piscine de C++ : [axelcoezard/ft_piscine_Cpp](https://github.com/axelcoezard/ft_piscine_Cpp)
-
 ## Projets
 
 <table>
