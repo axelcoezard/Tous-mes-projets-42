@@ -39,7 +39,7 @@ Sauvegarde de tous mes projets 42 finis.
 
 | Nom du projet  | Note obtenu /100 |
 | :---------------:| :---------------:|
-| Libasm | 100 |
+| libasm | 100 |
 | ft_linear_regression | 125 |
 | Avaj Launcher | 125 |
 | Snowcrash | 125 |
