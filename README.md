@@ -46,7 +46,7 @@ Sauvegarde de tous mes projets 42 finis.
 | Scop | 125 |
 | Computor v1 | 125 |
 | ft_ping | 125 |
-| Bgp At Doors of Autonomous Systems is Simple | 100 |
+| BADASS | 100 |
 | Rainfall | 125 |
 
 </td></tr> </table>
