@@ -1,0 +1,11 @@
+*.o
+*.out
+*.swp
+*.swo
+*.DS_Store
+correction.pdf
+
+.vscode/
+bin/
+philo/philo
+philo_bonus/philo_bonus

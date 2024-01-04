@@ -1,0 +1,10 @@
+*.DS_Store
+*.out
+*.o
+
+logs.txt
+ft_containers
+std_containers
+
+bin/
+.vscode/

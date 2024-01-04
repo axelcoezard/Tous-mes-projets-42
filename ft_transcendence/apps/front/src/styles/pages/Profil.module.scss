@@ -1,0 +1,251 @@
+@use '../_colors' as *;
+
+.profil {
+	width: 480px;
+	height: auto;
+
+	border-radius: 20px;
+	background-color: $color_widget;
+
+	z-index: 1000;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	display: flex;
+	flex-direction: column;
+
+	@media screen and (max-width: 768px) {
+		width: calc(100% - 30px);
+    }
+}
+
+.profil_header {
+	flex: 0 0 auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.profil_header_stats {
+	height: 70px;
+	width: 100%;
+	padding: 0 20px;
+	margin-bottom: 20px;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.profil_header_stats li {
+	list-style: none;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+
+	strong {
+		@include text-color(1.75rem)
+	}
+}
+
+.profil_header_avatar {
+	$avatar-height: 120px;
+
+	flex: 0 0 100%;
+	height: $avatar-height / 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+
+	div {
+		height: $avatar-height !important;
+		width: $avatar-height !important;
+
+		position: absolute;
+		top: - $avatar-height / 2;
+		left: 50%;
+		transform: translate(-50%, 0);
+	}
+}
+
+.profil_header_description {
+	$descriptioh-height: 120px;
+
+	flex: 0 0 100%;
+	height: $descriptioh-height;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	h1 {
+		font-size: 2rem;
+		text-transform: uppercase;
+
+		background: linear-gradient(
+			135deg,
+			$color_mauve 20.83%,
+			$color_uranian 49.94%,
+			$color_mint 80.3%
+		);
+		background-clip: text;
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+}
+
+.profil_header_elo {
+	text-align: center;
+
+	font-size: 1.1rem;
+	color: #fff;
+
+	strong {
+		font-weight: bold;
+		font-size: 1.6em;
+	}
+}
+
+.profil_header_actions {
+	height: 50px;
+	width: 100%;
+	padding: 0 20px;
+	margin-bottom: 20px;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+
+	button, a {
+		@include generate-button()
+	}
+}
+
+.profil_history {
+	$history-height: (80px + 20px) * 3;
+
+	height: $history-height;
+	width: 100%;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	overflow-y: scroll;
+
+	&:last-child { margin-bottom: 0; }
+	margin-bottom: 20px;
+
+	p {
+		font-size: .8em;
+		text-align: center;
+	}
+
+	@media screen and (max-height: 850px) {
+		height: (80px + 20px) * 2.5;
+    }
+
+	@media screen and (max-height: 680px) {
+		height: (80px + 20px) * 1.5;
+    }
+}
+
+.profil_match {
+	$match-height: 80px;
+	$match-margin: 20px;
+
+	flex: 0 0 $match-height;
+	width: calc(100% - $match-margin * 2);
+	height: $match-height;
+	margin-bottom: $match-margin;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+
+	background: rgba($color_jet, 0.7);
+	border-radius: $match-height / 8;
+}
+
+.profil_match_left,
+.profil_match_right {
+	flex: 1 0 40%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	padding: 0 10px;
+
+	strong {
+		font-size: 1.5rem;
+		font-weight: bold;
+		padding: 0 20px;
+	}
+}
+
+.profil_match_left {
+	flex-direction: row;
+}
+
+.profil_match_right {
+	flex-direction: row-reverse;
+}
+
+.profil_match_vs {
+	flex: 0 0 40px;
+	height: 100%;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	font-size: 2rem;
+	color: #fff;
+}
+
+.profil_menu {
+	width: 100%;
+	padding: 0 20px 20px 20px;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-evenly;
+	align-items: center;
+
+	button,
+	.profil_menu_active {
+		flex: 1 0 auto;
+		height: 40px;
+
+		border: none;
+		border-bottom: 2px solid;
+		border-bottom-color: rgba(50, 50, 50, 0.7);
+		background: transparent;
+		color: #ffffff;
+		font-size: 1.2rem;
+		cursor: pointer;
+
+		&:hover {
+			border-bottom-color: $color_aero;
+		}
+		transition: border-bottom-color 0.3s ease-in-out;
+	}
+	.profil_menu_active {
+		border-bottom-color: $color_aero;
+		transition: border-bottom-color 0.3s ease-in-out;
+	}
+}

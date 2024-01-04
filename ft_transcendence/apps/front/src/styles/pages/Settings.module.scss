@@ -1,0 +1,241 @@
+@use '../_colors' as *;
+
+$max-width: 950px;
+$settings-margin: 20px;
+$header-height: 125px;
+$icon-size: 200px;
+
+.settings {
+	display: block;
+    width: calc(100% - 140px - $settings-margin * 2);
+    height: calc(100% - $settings-margin * 2 - 70px);
+	max-width: $max-width;
+
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+    z-index: 900;
+
+	display: flex;
+	flex-direction: column;
+
+	@media screen and (max-width: 768px) {
+		transform: translate(-50%, 0);
+		top: $settings-margin;
+		width: calc(100% - 30px);
+    }
+}
+
+.settings_header {
+	flex: 0 0 $header-height;
+	height: $header-height;
+	padding-bottom: $settings-margin;
+
+	@media screen and (max-width: 768px) {
+		flex: 0 0 $header-height;
+		height: $header-height;
+	}
+}
+
+.settings_header_container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: $color_widget;
+	border-radius: 20px;
+
+	h1 { @include text-color(3rem); }
+	@media screen and (max-width: 768px) {
+		h1 { @include text-color(2rem); }
+	}
+}
+
+.settings_features {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+	flex-wrap: wrap;
+
+	width: 100%;
+
+	@media screen and (max-width: 768px) {
+		width: 100%;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding-bottom: 100px;
+	}
+}
+
+.settings_feature {
+	flex-shrink: 1;
+	max-width: 33%;
+	height: 420px;;
+	position: relative;
+	background-color:  $color_widget;
+	border-radius: 20px;
+	padding: $settings-margin * 1.5 0;
+	margin-bottom: 20px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: nowrap;
+
+	@media screen and (max-width: 768px) {
+		width: 100%;
+		max-width: 100%;
+		height: auto;
+		flex: 0 0 auto;
+		flex-wrap: wrap;
+		margin: 0 0 $settings-margin 0;
+	}
+}
+
+.settings_feature_title {
+	flex: 0 0 30%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+
+	padding: 0 $settings-margin;
+
+	@media screen and (max-width: 768px) {
+		flex: 0 0 auto;
+	}
+
+	h2 {
+		@include text-color(1.7rem);
+		margin-bottom: 10px;
+	}
+
+	p {
+		padding: 0 $settings-margin;
+	}
+}
+
+.settings_feature_body {
+	flex: 0 0 70%;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	align-items: center;
+
+	padding: $settings-margin 0;
+}
+
+.settings_feature_body form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+@mixin settings_input($letter-spacing: auto, $text-indent: 0) {
+	width: 150px;
+	height: 40px;
+	padding: 0 16px;
+	margin: 10px 0;
+
+	letter-spacing: $letter-spacing;
+	text-indent: $text-indent;
+	color: white;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+	text-align: center;
+
+	border: $color_eerie;
+	border-radius: 10px;
+	outline: none;
+	background-color: $color_jet;
+
+	&::placeholder { letter-spacing: 0; text-indent: 0; }
+}
+
+.settings_feature_input {
+	@include settings_input;
+}
+
+.settings_feature_input_code {
+	@include settings_input(10px, 10px);
+}
+
+.settings_feature_input_file {
+	width: 70%;
+	padding: 20px 0;
+}
+
+.settings_feature_input_color{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	width: 70%;
+	height: 60px;
+	border: none;
+
+	margin-bottom: 20px;
+	background: transparent;
+	cursor: pointer;
+
+	&::-webkit-color-swatch {
+		border-radius: 15px;
+	}
+
+
+	&::-moz-color-swatch {
+		border-radius: 15px;
+	}
+}
+
+@mixin settings_button($color, $text) {
+	cursor: pointer;
+
+	background-color: $color;
+	height: 40px;
+	line-height: 40px;
+	padding: 0 36px;
+	border-radius: 30px;
+	border: none;
+	outline: none;
+	color: $text;
+	text-decoration: none;
+	font-weight: bold;
+
+	transition: background-color 0.1s ease-in-out, color 0.1s ease-in-out;
+
+	&:hover {
+		background-color: $text;
+		color: $color;
+	}
+
+	&:active {
+		background-color: $color_jet;
+		box-shadow: 0 5px black;
+	}
+}
+
+.settings_feature_error {
+	color: rgb(255, 183, 0);
+	font-size: 1rem;
+	margin-top: 10px;
+	padding: 0 20px;
+	text-align: center;
+}
+
+.settings_feature_desactivate {
+	@include settings_button(red, #fff);
+	margin-top: 15px;
+}
+.settings_feature_activate,
+.settings_feature_body form button {
+	@include settings_button($color_aero, #fff);
+}

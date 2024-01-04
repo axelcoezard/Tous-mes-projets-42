@@ -1,0 +1,113 @@
+/* ----------- COLOR PALETTE -----------*/
+
+@use '_colors' as *;
+
+/* ----------- LOGIN ELEMENTS ----------*/
+
+.welcome_svg {
+	width: 40px;
+	height: 40px;
+}
+
+/* ---------- PROFIL ELEMENTS ----------*/
+
+.victory_crown {
+	width: 1.3vw;
+	height: 1vw;
+	fill: none;
+}
+
+/* --------- HOME ILLUSTRATION -------- */
+
+@mixin game_illustration {
+    top: -15%;
+    left: 50%;
+    transform: translate(0%, -50%);
+}
+
+.random_illustration {
+    @include game_illustration();
+    width: 12.24vw;
+    height:  9.9vw;
+
+    fill: none;
+
+    position: absolute;
+    top: -25%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.invite_illustration {
+    @include game_illustration();
+
+    fill: none;
+
+    width: 10.21vw;
+    height: 11vw;
+
+    position: absolute;
+    top: -25%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+.watch_illustration {
+    @include game_illustration();
+
+    fill: none;
+
+    width: 8.8vw;
+    height: 10.8vw;
+
+    position: absolute;
+    top: -25%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+/* -------------- ICONS -------------- */
+
+.write_icon {
+    margin: 1.4vw;
+}
+
+.send_icon {
+    cursor: pointer;
+}
+
+.cross_icon {
+    margin: 1.4vw;
+    cursor: pointer;
+}
+
+.menu_icon {
+    cursor: pointer;
+}
+
+.bin_icon {
+    margin: 1.4vw;
+    cursor: pointer;
+}
+
+.plus_icon {
+    margin: 1.4vw;
+    cursor: pointer;
+}
+
+.search_icon {
+    margin: 1.4vw;
+}
+
+.report_icon {
+    margin: 1.4vw;
+    cursor: pointer;
+}
+
+.rank_icon {
+    margin: 1.4vw;
+    cursor: pointer;
+}
+
+/* ------------- LOADING ------------- */
+

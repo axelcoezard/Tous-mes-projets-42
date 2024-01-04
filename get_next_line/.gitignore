@@ -1,0 +1,10 @@
+*.o
+*.out
+*.DS_Store
+
+*.dSYM/
+gnlTester/
+.vscode/
+
+test.txt
+test.c

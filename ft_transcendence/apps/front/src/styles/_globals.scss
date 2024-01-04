@@ -1,0 +1,49 @@
+/* ----------- COLOR PALETTE -----------*/
+
+@use '_colors' as *;
+
+/* ---------------- ELSE ---------------*/
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+	position: relative;
+	width: 100vw;
+	height: 100%;
+	font-family: sans-serif;
+	background: #000;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+img, svg {
+	--webkit-user-drag: none;
+}
+
+#root {
+	width: 100%;
+	height: 100%;
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #ffffff;
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #efefef;
+}
