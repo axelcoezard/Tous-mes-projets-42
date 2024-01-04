@@ -1,0 +1,7 @@
+*.class
+*.DS_Store
+*sources.txt
+*.swp
+*.swo
+
+bin/

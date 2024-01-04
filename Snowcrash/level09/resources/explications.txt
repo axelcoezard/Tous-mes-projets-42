@@ -1,0 +1,62 @@
+-----------------------------------------------------------
+                          LEVEL09
+-----------------------------------------------------------
+
+1. On regarde les fichiers mis à notre disposition
+   --------------------------------------------------------
+   CMD : ls
+   OUTPUT : level09 token
+
+2. On exécute level10 une première fois sans paramètre
+   --------------------------------------------------------
+   CMD : ./level09
+   OUTPUT : You need to provied only one arg.
+
+3. Puis une deuxième fois, cette fois avec un paramètre,
+   comme l'indique le message d'erreur ci-dessus. On 
+   constate que le script level09 effectue un décalage sur
+   chaque valeur ASCII du charactère de la string selon 
+   l'index de ce dernier :
+   - a : idx = 0 -> a + 0 = a
+   - b : idx = 1 -> b + 1 = c
+   - c : idx = 2 -> c + 2 = e 
+   - d : idx = 3 -> f + 3 = g
+   - e : idx = 4 -> e + 4 = i 
+   - f : idx = 5 -> f + 5 = k
+   --------------------------------------------------------
+   CMD : ./level09 abcdef
+   OUTPUT : acegik
+
+3. On cat le fichier token pour voir ce qu'il contient, ce
+   qui nous retourne une strings avec des charactère non
+   ASCII
+   --------------------------------------------------------
+   CMD : cat token
+   OUTPUT : f4kmm6p|=�p�n��DB�Du{��
+
+4. On créé donc un petit script python qui produit le
+   comportement inverse du script level09, ce dernier soustrait
+   l'index et non qui l'additionne
+   (./level09/resources/script.py) :
+   --------------------------------------------------------
+   SCRIPT : value = raw_input()
+
+            output = ""
+            i = 0
+            for c in value:
+               output += chr((ord(c) - i) % 128)
+               i += 1
+
+            print (output)
+
+5. On exécute notre script avec le contenu du fichier token 
+   --------------------------------------------------------
+   CMD : cat token | python script.py
+   OUTPUT : f3iji1ju5yuevaus41q1afiuq
+
+6. Il suffit maintenant de get le flag pour le niveau
+   suivant avec la commande getflag
+   --------------------------------------------------------
+   CMD : getflag 
+   OUTPUT : Check flag.
+            Here is your token : s5cAJpM8ev6XHw998pRWG728z 

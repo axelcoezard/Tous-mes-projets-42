@@ -1,0 +1,96 @@
+-----------------------------------------------------------
+                          LEVEL14
+-----------------------------------------------------------
+
+1. Étant donné qu'aucun fichier/executable nous est donné
+   pour ce niveau, on suppose qu'il faut qu'on utilise
+   d'une façon ou d'une autre commande getflag.
+   --------------------------------------------------------
+   CMD : ls -la
+   OUTPUT : { nothing at all... :'( }
+
+2. En effectuant un string sur notre /bin/getflag, l'on 
+   apperçoit que ce dernier utilise la fonction getuid()
+   --------------------------------------------------------
+   CMD : strings /bin/getflag
+   OUTPUT : [...]
+            getuid
+            [...]
+
+3. On utilise GDB pour analyser /bin/getflag. On tente de
+   run avec un breaking point sur getuid mais cela nous 
+   renvoie une erreur. 
+   --------------------------------------------------------
+   CMD : break getflag 
+   OUTPUT : Starting program: /bin/getflag
+            You should not reverse this
+            [Inferior 1 (process 2264) exited with code 01]
+
+
+4. En effectuant un strings sur /bin/getflag, on s'apperçoit
+   que ce dernier utiliser la fonction ptrace. En se 
+   penchant dessus on apprend qu'il exitse un exploit afin 
+   que ptrace n'empeche pas de continuer l'execution malgrès
+   un probleme de permission.
+   --------------------------------------------------------
+   CMD : strings /bin/getflag
+   OUTPUT : [...]
+            ptrace
+            [...]
+   
+   LINK : https://gist.github.com/poxyran/71a993d292eee10e95b4ff87066ea8f
+
+5. Préalablement, on guette l'UID de notre flag14 avec la 
+   commande id : 3014.
+   --------------------------------------------------------
+   CMD : id flag14
+   OUTPUT : uid=3014(flag14) 
+            gid=3014(flag14) 
+            groups=3014(flag14)
+            1001(flag)
+
+6. On relance gdb sur /bin/getflag et on effectue 
+   les commandes propre a l'exploit mentionné ci-dessus : 
+   catch syscall ptrace, commands 1, set ($eax) = 0, 
+   continue et end.
+   --------------------------------------------------------
+   a. CMD : catch syscall ptrace
+      OUTPUT : Catchpoint 1 (syscall 'ptrace' [26])
+   
+   b. CMD : commands 1
+      OUTPUT : Type commands for breakpoint(s) 1, one per line.
+               End with a line saying just "end".
+               >set ($eax) = 0
+               >continue
+               >end
+
+
+5. On remet un breaking point sur getuid et on run notre 
+   programme dans gdb.
+   --------------------------------------------------------
+   a. CMD : b getuid
+      OUTPUT : Breakpoint 2 at 0xb7ee4cc0
+   
+   b. CMD : run 
+      OUTPUT : Starting program: /bin/getflag
+
+               Catchpoint 1 (call to syscall ptrace),
+               0xb7fdd428 in __kernel_vsyscall ()
+
+               Catchpoint 1 (returned from syscall ptrace), 
+               0xb7fdd428 in __kernel_vsyscall ()
+
+               Breakpoint 2, 0xb7ee4cc0 in getuid () from 
+               /lib/i386-linux-gnu/libc.so.6
+
+6. On progresse étape par étape grâce à la commande step et
+   à chaque étape a partir du breakpoint (Breakpoint 2, 
+   0xb7ee4cc0 in getuid () from /lib/i386-linux-gnu/libc.so.6) 
+   on met a jour la valeur du registre en faisant set
+   $eax=3014. 2 steps apres le breakpoint, on obtient: 
+   --------------------------------------------------------
+   CMD : step { && } set $eax=4242 { x 2 }
+   OUTPUT : Single stepping until exit from function main,
+            which has no line number information.
+            Check flag.Here is your token : 7QiHafiNa3HVozsaXkawuYrTstxbpABHD8CPnHJ
+            0xb7e454d3 in __libc_start_main () from /lib/i386-linux-gnu/libc.so.6

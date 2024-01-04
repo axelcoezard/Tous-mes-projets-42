@@ -1,0 +1,72 @@
+-----------------------------------------------------------
+                          LEVEL13
+-----------------------------------------------------------
+
+1. On regarde les fichiers mis à notre disposition, on
+   a un executable :
+   --------------------------------------------------------
+   CMD : ls
+   OUTPUT : level13
+
+2. On exécute notre executable
+   --------------------------------------------------------
+   CMD : ./level13
+   OUTPUT : UID 2013 started us but we we expect 4242
+
+3. En effectuant un string sur notre executable, l'on 
+   apperçoit que ce dernier utilise la fonction getuid()
+   --------------------------------------------------------
+   CMD : strings level13
+   OUTPUT : [...]
+            getuid
+            [...]
+
+4. On utilise GDB pour analyser notre executable. En 
+   effectuant un break main, un run puis un disassemble pour 
+   disassembler notre executable, on constante que la 
+   foncton getuid est utilisé à ligne +9. On constante 
+   également, que notre executable utilise le registre %eax 
+   qu'on suppose contenir not UID 2013. Le but étant 
+   maintenant de changer la valeur de ce register avec la 
+   valeur demandé lors de l'execution de notre executable 
+   : 4242.
+   --------------------------------------------------------
+   a. CMD : break main
+      OUTPUT : Breakpoint 1 at 0x804858f 
+
+   b. CMD : run 
+      OUTPUT : Starting program: /home/user/level13/level13
+               Breakpoint 1, 0x0804858f in main () 
+
+   c. CMD : disassemble
+      OUTPUT : Dump of assembler code for function main:
+               [...]
+               0x08048595 <+9>:	call   0x8048380 <getuid@plt>
+               0x0804859a <+14>:	CMDp    $0x1092,%eax
+               [...]
+               End of assembler dump.
+
+5. De fait, on met un breaking point sur getuid en effectuant
+   la commande b getuid et on relance le programme dans gdb en 
+   faisant run. 
+   --------------------------------------------------------
+   a. CMD : b getuid
+      OUTPUT : Breakpoint 2 at 0xb7ee4cc0
+
+   b. CMD : run 
+      OUTPUT : The program being debugged has been started already.
+               Start it from the beginning? (y or n) y
+               Starting program: /home/user/level13/level13
+               Breakpoint 1, 0x0804858f in main () 
+
+6. On progresse étape par étape grâce à la commande step et
+   à chaque étape a partir du breakpoint (Breakpoint 2, 
+   0xb7ee4cc0 in getuid () from /lib/i386-linux-gnu/libc.so.6) 
+   on met a jour la valeur du registre en faisant set
+   $eax=4242. 2 steps apres le breakpoint, on obtient: 
+   --------------------------------------------------------
+   CMD : step { && } set $eax=4242 { x 2 }
+   OUTPUT : Single stepping until exit from function main,
+            which has no line number information.
+            your token is 2A31L79asukciNyi8uppkEuSx
+            0xb7e454d3 in __libc_start_main () from /lib/i386-linux-gnu/libc.so.6

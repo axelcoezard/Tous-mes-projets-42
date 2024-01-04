@@ -1,0 +1,18 @@
+section .text
+	global	_ft_write
+	extern	___error
+
+_ft_write:
+	mov		rax, 0x2000004
+	syscall
+	jc		_error
+	ret
+
+_error:
+	mov		r15, rax
+	sub		rsp, 0x8
+	call	___error
+	add		rsp, 0x8
+	mov		[rax], r15
+	mov		rax, -1
+	ret

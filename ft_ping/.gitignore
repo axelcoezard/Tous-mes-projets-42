@@ -1,0 +1,6 @@
+*.DS_Store
+
+ft_ping
+
+bin/
+.vscode/

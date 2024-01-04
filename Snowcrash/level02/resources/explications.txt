@@ -1,0 +1,32 @@
+-----------------------------------------------------------
+                          LEVEL02
+-----------------------------------------------------------
+
+1. Transferer les fichiers de la VM vers le PC pour ensuite
+   utiliser WireShark
+   --------------------------------------------------------
+   CMD : scp -P 4242 level02@localhost:./level02.pcap .
+
+2. WireShark
+   --------------------------------------------------------
+   a. Ouvrir le ficher pcap dans WireShark ;
+   b. Aller dans le TCP stream ;
+   c. Parmi les données on trouve la ligne suivante : 
+      Password: ft_wandr...NDRel.L0L ;
+   d. Cependant les points sont des caractères spécieaux
+      que l'on récupère en changeant l'encodage en Hex-dump :
+      66 74 5f 77 61 6e 64 72 7f 7f 7f 4e 44 52 65 6c 7f 4c 30 4c
+   e. Ce qui donne le mdp suivant en UTF8 :
+      ft_wandr���NDRel�L0L
+
+3. Il suffit maintenant de se connecter en sudo sur flag00
+   en spécifiant le mdp trouver
+   --------------------------------------------------------
+   CMD : su flag02
+   OUTPUT : Password : ft_wandrNDRelL0L
+
+4. Pour enfin obtenir le mdp pour passer au niveau 3 en 
+   utilisant la commande getflag
+   --------------------------------------------------------
+   CMD : getflag
+   OUTPUT : Check flag.Here is your token : kooda2puivaav1idi4f57q8iq
