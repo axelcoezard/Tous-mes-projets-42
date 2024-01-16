@@ -4,9 +4,6 @@ Mon projet Born2beroot de 42.
 ## Résumé
 > Ce projet a pour but de vous faire découvrir le merveilleux monde de la virtualisation.
 
-## Note
-![Born2beroot grade](https://badge42.vercel.app/api/v2/cl1kx405i014409ju8dq834q5/project/2384974)
-
 ## Configuration
 ### Installation de sudo
 
