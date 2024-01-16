@@ -14,7 +14,7 @@ Sauvegarde de tous mes projets 42 finis.
 
 | Nom du projet  | Note obtenu /100 |
 | :---------------:| :---------------:|
-| libft  | 125 |
+| [libft](./tree/main/libft)  | 125 |
 | printf  | 100 |
 | get_next_line | 100 |
 | Born2BeRoot | 110 |
