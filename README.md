@@ -17,7 +17,7 @@ Sauvegarde de tous mes projets 42 finis.
 | [libft](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/libft)  | 125 |
 | [ft_printf](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/ft_printf)  | 100 |
 | [get_next_line](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/get_next_line) | 100 |
-| [Born2BeRoot](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/Born2BeRoot) | 110 |
+| [Born2beroot](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/Born2beroot) | 110 |
 | [minitalk](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/minitalk) | 116 |
 | [FdF](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/FdF) | 120 |
 | [push_swap](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/push_swap) | 84 |
