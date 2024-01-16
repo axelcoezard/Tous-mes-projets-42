@@ -14,35 +14,35 @@ Sauvegarde de tous mes projets 42 finis.
 
 | Nom du projet  | Note obtenu /100 |
 | :---------------:| :---------------:|
-| [libft](./tree/main/libft)  | 125 |
-| printf  | 100 |
-| get_next_line | 100 |
-| Born2BeRoot | 110 |
-| minitalk | 116 |
-| FdF | 120 |
-| push_swap | 84 |
-| Philosophers | 125 |
-| minishell | 125 |
-| miniRT | 125 | 
-| NetPractice | 100 |
-| ft_irc | 125 |
-| ft_containers | 100 |
-| Inception | 100 |
-| ft_transcendence | 98 |
+| [libft](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/libft)  | 125 |
+| [ft_printf](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/ft_printf)  | 100 |
+| [get_next_line](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/get_next_line) | 100 |
+| [Born2BeRoot](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/Born2BeRoot) | 110 |
+| [minitalk](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/minitalk) | 116 |
+| [FdF](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/FdF) | 120 |
+| [push_swap](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/push_swap) | 84 |
+| [Philosophers](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/Philosophers) | 125 |
+| [minishell](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/minishell) | 125 |
+| [miniRT](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/miniRT) | 125 | 
+| [NetPractice](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/NetPractice) | 100 |
+| [ft_irc](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/ft_irc) | 125 |
+| [ft_containers](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/ft_containers) | 100 |
+| [Inception](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/Inception) | 100 |
+| [ft_transcendence](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/ft_transcendence) | 98 |
 
 </td><td>
 
 | Nom du projet  | Note obtenu /100 |
 | :---------------:| :---------------:|
-| libasm | 100 |
-| ft_linear_regression | 125 |
-| Avaj Launcher | 125 |
-| Snowcrash | 125 |
-| Scop | 125 |
-| Computor v1 | 125 |
-| ft_ping | 125 |
-| BADASS | 100 |
-| Rainfall | 125 |
+| [libasm](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/libasm) | 100 |
+| [ft_linear_regression](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/ft_linear_regression) | 125 |
+| [Avaj Launcher](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/Avaj-Launcher) | 125 |
+| [Snowcrash](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/Snowcrash) | 125 |
+| [Scop](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/Scop) | 125 |
+| [Computor v1](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/Computor-v1) | 125 |
+| [ft_ping](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/ft_ping) | 125 |
+| [BADASS](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/BADASS) | 100 |
+| [Rainfall](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/Rainfall) | 125 |
 | Inception of Things | 100 |
 
 </td></tr> </table>
