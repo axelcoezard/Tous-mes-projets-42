@@ -1,0 +1,47 @@
+
+## Quelques infos
+- Ajouter `user` aux sudoers: `usermod -aG sudo $USER`
+- Ajouter `username  ALL=(ALL) NOPASSWD:ALL` au fichier `/etc/sudoers` via `visudo`
+- Changer `Port 21` en `Port 4242` dans `/etc/ssh/sshd_config` puis redemarer ssh via `service ssh restart`
+- Repo a deployer: https://github.com/Kalinololo/asebrech-iot-deploy
+
+## Quelques definitions
+### Docker
+Docker est un logiciel libre permettant de lancer des applications dans des conteneurs logiciels. Il a été créé par Solomon Hykes et initialement développé par la société Docker, Inc.
+
+### Kubernetes
+Kubernetes est un système open-source qui permet d'automatiser le déploiement, la montée en charge et la gestion des applications conteneurisées. Il a été conçu à l'origine par Google et est maintenant maintenu par la Cloud Native Computing Foundation. Il vise à fournir une "plate-forme permettant d'automatiser le déploiement, la montée en charge et la mise en œuvre de conteneurs d'application sur des grappes de serveurs".
+
+### K3S
+K3s est une distribution légère de Kubernetes. Elle est conçue pour les développeurs et les opérateurs qui cherchent un moyen de démarrer rapidement avec Kubernetes, ainsi que pour les projets de bordure, de l'IdO (Internet des objets) et de l'informatique embarquée où les ressources sont limitées.
+
+### K3D
+K3d est un outil léger qui permet de créer des clusters k3s dans docker, il est conçu pour les développeurs et les opérateurs qui cherchent un moyen rapide de démarrer avec Kubernetes.
+
+#### Pod
+Un pod est un groupe d'un ou plusieurs conteneurs, avec un stockage partagé et des options de réseau, et un ensemble de spécifications pour exécuter ces conteneurs. Un pod est l'unité de base sur laquelle repose l'orchestration de Kubernetes.
+
+#### Service
+Un service est un objet Kubernetes qui définit un ensemble de pods et une politique d'accès à ces pods. Les services permettent d'exposer des applications, des services et d'autres ressources déployées à l'intérieur d'un cluster Kubernetes, à l'intérieur ou à l'extérieur du cluster.
+
+#### Namespace
+Un namespace est un moyen de diviser les ressources d'un cluster Kubernetes en groupes logiques. Lorsque Kubernetes déploie un cluster, il crée un namespace par défaut appelé default. Chaque ressource Kubernetes est créée dans un namespace.
+
+#### Cluster
+Un cluster est un ensemble de nœuds qui exécutent des applications conteneurisées gérées par Kubernetes. Le cluster agit comme un serveur unique. Ses ressources sont partagées entre les nœuds.
+
+#### Node
+Un nœud est une machine physique ou virtuelle sur laquelle Kubernetes est installé. Chaque nœud est géré par le maître Kubernetes. Le nœud peut être un serveur physique ou virtuel.
+
+### Vagrant
+Vagrant est un logiciel libre et open-source pour la création et la configuration des environnements de développement virtuel. Il peut être considéré comme un wrapper autour de logiciels de virtualisation tels que VirtualBox, KVM, VMware et autour de gestionnaires de configuration comme Ansible, Chef, Salt et Puppet.
+
+### ArgoCD
+Argo CD est un outil open source qui permet de déployer des applications sur un cluster Kubernetes. Il est basé sur GitOps, ce qui signifie que toutes les opérations de déploiement sont effectuées à l'aide de Git en tant que source de vérité. Argo CD surveille les dépôts Git et, lorsqu'un changement est détecté, il déploie automatiquement les nouvelles versions des applications sur le cluster Kubernetes.
+
+### Ingress
+Un ingress est un objet Kubernetes qui définit les règles d'accès à un cluster Kubernetes. Il peut fournir des fonctionnalités d'équilibrage de charge, de terminaison SSL et de nommage virtuel. Les règles d'accès sont définies dans le cadre d'une ressource ingress Kubernetes.
+
+### Integration Continue
+L'intégration continue est une pratique de génie logiciel consistant à vérifier à chaque modification de code source que le résultat des modifications ne produit pas de régression dans l'application développée. Elle est utilisée dans le cadre de la méthode de développement agile.
+
