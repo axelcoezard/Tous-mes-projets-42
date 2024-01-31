@@ -1,6 +1,6 @@
 # Tous mes projets 42
 
-Sauvegarde de tous mes projets 42 finis. 
+Sauvegarde de tous mes projets 42 finis.
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-c.svg)](https://forthebadge.com)
@@ -23,7 +23,7 @@ Sauvegarde de tous mes projets 42 finis.
 | [push_swap](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/push_swap) | 84 |
 | [Philosophers](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/Philosophers) | 125 |
 | [minishell](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/minishell) | 125 |
-| [miniRT](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/miniRT) | 125 | 
+| [miniRT](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/miniRT) | 125 |
 | [NetPractice](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/NetPractice) | 100 |
 | [ft_irc](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/ft_irc) | 125 |
 | [ft_containers](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/ft_containers) | 100 |
@@ -44,6 +44,7 @@ Sauvegarde de tous mes projets 42 finis.
 | [BADASS](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/BADASS) | 100 |
 | [Rainfall](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/Rainfall) | 125 |
 | [Inception of Things](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/Inception-of-Things) | 100 |
+| [Darkly](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/Darkly) | 125 |
 
 </td></tr> </table>
 
