@@ -9,7 +9,7 @@ Sauvegarde de tous mes projets 42 finis.
 ## Projets
 
 <table>
-<tr><th>Tronc commun </th><th>Spécialisations</th></tr>
+<tr><th>Tronc commun </th><th>Systèmes d'information et Réseaux</th></tr>
 <tr><td>
 
 | Nom du projet  | Note obtenu /100 |
