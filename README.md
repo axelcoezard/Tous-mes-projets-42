@@ -47,6 +47,7 @@ Sauvegarde de tous mes projets 42 finis.
 | [Darkly](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/Darkly) | 125 |
 | [zappy](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/zappy) | 84 |
 | malloc | ⏳ |
+| nm | ⏳ |
 
 </td></tr> </table>
 
