@@ -46,8 +46,7 @@ Sauvegarde de tous mes projets 42 finis.
 | [Inception of Things](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/Inception-of-Things) | 100 |
 | [Darkly](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/Darkly) | 125 |
 | [zappy](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/zappy) | 84 |
-| malloc | ⏳ |
-| nm | ⏳ |
+| [nm](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/nm) | 100 |
 
 </td></tr> </table>
 
