@@ -1,0 +1,6 @@
+*.out
+*.o
+*.DS_Store
+*.swp
+*.swo
+rush-02

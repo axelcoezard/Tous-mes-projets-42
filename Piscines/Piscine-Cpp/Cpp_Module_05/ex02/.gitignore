@@ -1,0 +1,8 @@
+*.DS_Store
+*.out
+*.o
+
+form
+maison_shrubbery
+
+bin/

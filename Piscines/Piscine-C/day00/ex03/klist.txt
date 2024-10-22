@@ -1,0 +1,6 @@
+Credentials cache: API:4AA5C31F-8371-41C8-8D5F-7127ECC2EAA1
+        Principal: acoezard@42NICE.FR
+
+  Issued                Expires               Principal
+Sep  7 08:26:23 2021  Sep  7 18:26:23 2021  krbtgt/42NICE.FR@42NICE.FR
+Sep  7 08:26:26 2021  Sep  7 18:26:23 2021  HTTP/student-storage.42nice.fr@42NICE.FR
