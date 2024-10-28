@@ -1,6 +1,6 @@
 # Tous mes projets 42
 
-Sauvegarde de tous mes projets 42 finis.
+Sauvegarde de tous mes projets et de toutes mes piscines 42 finis et évalués 
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-c.svg)](https://forthebadge.com)
