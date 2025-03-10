@@ -1,6 +1,6 @@
 # Tous mes projets 42
 
-Sauvegarde de tous mes projets et de toutes mes piscines 42 finis et évalués 
+Sauvegarde de tous mes projets et de toutes mes piscines 42 finis et évalués.
 
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-c.svg)](https://forthebadge.com)
@@ -47,7 +47,6 @@ Sauvegarde de tous mes projets et de toutes mes piscines 42 finis et évalués
 |               [Darkly](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/Projets/Darkly)               |       125        |
 |                [zappy](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/Projets/zappy)                |        84        |
 |                   [nm](https://github.com/axelcoezard/Tous-mes-projets-42/tree/main/Projets/nm)                   |       100        |
-|                                                      malloc                                                       |        ⌛         |
 
 </td></tr> </table>
 
